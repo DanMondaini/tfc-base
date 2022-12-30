@@ -13,6 +13,9 @@ class Users extends Model {
 Users.init({
   id: {
     type: INTEGER,
+    primaryKey: true,
+    allowNull: false,
+    autoIncrement: true,
   },
 
   username: {
