@@ -1,21 +1,41 @@
 'use strict';
 
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+    await queryInterface.createTable('matches', {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+
+      home_team: {
+        type: Sequelize.INTEGER
+//        field: 'team_name'
+      },
+
+      home_team_goals: {
+        type: Sequelize.INTEGER
+      },
+
+      away_team: {
+        type: Sequelize.INTEGER
+      },
+
+      away_team_goals: {
+        type: Sequelize.INTEGER
+      },
+
+      in_progress: {
+        type: Sequelize.BOOLEAN
+      },
+      
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.dropTable('matches');
   }
-};
+}
